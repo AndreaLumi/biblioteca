@@ -15,6 +15,7 @@ import java.util.Optional;
 public class BibliotecaController {
 
     private BibliotecaRepository bibliotecaRepository;
+
     @Autowired
     public BibliotecaController(BibliotecaRepository bibliotecaRepository) {
         this.bibliotecaRepository = bibliotecaRepository;
@@ -57,19 +58,19 @@ public class BibliotecaController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/genere/{genere}")
-    public List<Biblioteca> getLibriByGenere(@PathVariable String genere) {
-        return bibliotecaRepository.findByGenere(genere);
+    @GetMapping("/genre/{genre}")
+    public List<Biblioteca> getLibriByGenre(@PathVariable String genre) {
+        return bibliotecaRepository.findByGenre(genre);
     }
 
-    @GetMapping("/anno/{anno}")
-    public List<Biblioteca> getLibriByAnno(@PathVariable int anno) {
-        return bibliotecaRepository.findByAnno(anno);
+    @GetMapping("/year/{year}")
+    public List<Biblioteca> getLibriByYear(@PathVariable int year) {
+        return bibliotecaRepository.findByYear(year);
     }
 
-    @GetMapping("/disponibilita/{disponibilita}")
-    public List<Biblioteca> getLibriByDisponibilita(@PathVariable boolean disponibilita) {
-        return bibliotecaRepository.findByDisponibilità(disponibilita);
+    @GetMapping("/available/{available}")
+    public List<Biblioteca> getLibriByAvailable(@PathVariable boolean available) {
+        return bibliotecaRepository.findByAvailable(available);
     }
 
     @PutMapping("/{isbn}/prenota")
